@@ -15,6 +15,22 @@ Contributions are welcome but before opening a PR consider if your request would
 be better served as a contribution directly to the logrus project. This project
 was initially created so a few different projects could share the same code.
 
+```go
+package main
+
+import (
+	"github.com/opalmer/logrusutil"
+)
+
+func main() {
+	// Setup the root logger and hooks.
+	if err := logrusutil.ConfigureRoot(logrusutil.NewConfig()); err != nil {
+		panic(err)
+	}
+}
+
+```
+
 ## Case Sensitivity
 
 The logrus project was renamed at one point from:
