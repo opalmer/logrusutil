@@ -4,8 +4,8 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/Sirupsen/logrus"
 	"github.com/opalmer/logrusutil"
+	"github.com/sirupsen/logrus"
 )
 
 func TestConfigureRoot_ErrLevelNotProvided_Level(t *testing.T) {

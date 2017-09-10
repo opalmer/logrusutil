@@ -3,8 +3,8 @@ package logrusutil_test
 import (
 	"testing"
 
-	"github.com/Sirupsen/logrus"
 	"github.com/opalmer/logrusutil"
+	"github.com/sirupsen/logrus"
 )
 
 func TestExampleConfigureRoot(t *testing.T) {

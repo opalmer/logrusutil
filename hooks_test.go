@@ -3,8 +3,8 @@ package logrusutil_test
 import (
 	"testing"
 
-	"github.com/Sirupsen/logrus"
 	"github.com/opalmer/logrusutil"
+	"github.com/sirupsen/logrus"
 )
 
 func TestCallerHook_Fire_Disabled(t *testing.T) {

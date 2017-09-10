@@ -1,8 +1,8 @@
 package logrusutil
 
 import (
-	"github.com/Sirupsen/logrus"
 	"github.com/go-stack/stack"
+	"github.com/sirupsen/logrus"
 )
 
 // CallerHook is a logrus hook which applies information
