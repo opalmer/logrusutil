@@ -20,15 +20,15 @@ package main
 
 import (
 	"github.com/opalmer/logrusutil"
+	"github.com/Sirupsen/logrus"
 )
 
 func main() {
 	// Setup the root logger and hooks.
-	if err := logrusutil.ConfigureRoot(logrusutil.NewConfig()); err != nil {
+	if err := logrusutil.ConfigureLogger(logrus.StandardLogger(), logrusutil.NewConfig()); err != nil {
 		panic(err)
 	}
 }
-
 ```
 
 ## Case Sensitivity

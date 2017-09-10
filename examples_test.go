@@ -3,6 +3,7 @@ package logrusutil_test
 import (
 	"testing"
 
+	"github.com/Sirupsen/logrus"
 	"github.com/opalmer/logrusutil"
 )
 
@@ -15,7 +16,7 @@ func TestExampleConfigureRoot(t *testing.T) {
 
 func ExampleConfigureRoot() {
 	// Setup the root logger and hooks.
-	if err := logrusutil.ConfigureRoot(logrusutil.NewConfig()); err != nil {
+	if err := logrusutil.ConfigureLogger(logrus.StandardLogger(), logrusutil.NewConfig()); err != nil {
 		panic(err)
 	}
 }

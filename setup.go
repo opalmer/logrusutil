@@ -11,26 +11,21 @@ var (
 	// ErrLevelNotProvided is returned when a level was not provided
 	// in the config struct.
 	ErrLevelNotProvided = errors.New("level not provided")
-
-	// Logger is an alias for logrus's standard logger
-	// struct. This allows it to be replaced at runtime or during
-	// tests.
-	Logger = logrus.StandardLogger()
 )
 
-// ConfigureRoot will use the provided configuration to setup the root
+// ConfigureLogger will use the provided configuration to setup the root
 // logrus logger.
-func ConfigureRoot(config *Config) error {
+func ConfigureLogger(logger *logrus.Logger, config *Config) error {
 	if config.Level == "" || config.HookLevel == "" {
 		return ErrLevelNotProvided
 	}
 
 	if config.Level == DisabledLevel {
-		Logger.Out = ioutil.Discard
+		logger.Out = ioutil.Discard
 
 		// We set the level to panic here because even though we're
 		// discarding output logrus will still log.
-		Logger.SetLevel(logrus.PanicLevel)
+		logger.SetLevel(logrus.PanicLevel)
 	}
 
 	if config.Level != DisabledLevel {
@@ -39,7 +34,7 @@ func ConfigureRoot(config *Config) error {
 		if err != nil {
 			return err
 		}
-		Logger.SetLevel(level)
+		logger.SetLevel(level)
 	}
 
 	if config.HookLevel != DisabledLevel {
@@ -47,7 +42,7 @@ func ConfigureRoot(config *Config) error {
 		if err != nil {
 			return err
 		}
-		Logger.Hooks.Add(
+		logger.Hooks.Add(
 			NewCallerHook(
 				false, config.HookStackLevel,
 				config.CallerHookField, level))
