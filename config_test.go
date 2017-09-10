@@ -11,4 +11,13 @@ func TestNewConfig(t *testing.T) {
 	if cfg.Level != logrusutil.DefaultLevel {
 		t.Error()
 	}
+	if cfg.HookLevel != logrusutil.DefaultHookLevel {
+		t.Error()
+	}
+	if cfg.HookStackLevel != logrusutil.DefaultHookStackLevel {
+		t.Error()
+	}
+	if cfg.CallerHookField != logrusutil.DefaultCallerHookField {
+		t.Error()
+	}
 }
