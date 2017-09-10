@@ -1,5 +1,10 @@
 # Logrus Wrapper
 
+[![Build Status](https://travis-ci.org/opalmer/logrusutil.svg?branch=master)](https://travis-ci.org/opalmer/logrusutil)
+[![codecov](https://codecov.io/gh/opalmer/logrusutil/branch/master/graph/badge.svg)](https://codecov.io/gh/opalmer/logrusutil)
+[![Go Report Card](https://goreportcard.com/badge/github.com/opalmer/logrusutil)](https://goreportcard.com/report/github.com/opalmer/logrusutil)
+[![GoDoc](https://godoc.org/github.com/opalmer/logrusutil?status.svg)](https://godoc.org/github.com/opalmer/logrusutil)
+
 This project provides very basic wrappers for [logrus](https://github.com/sirupsen/logrus)
 including:
 
