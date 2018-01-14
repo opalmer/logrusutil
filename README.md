@@ -42,5 +42,5 @@ To:
     github.com/sirupsen/logrus
 
 This causes conflicts to occur in certain cases if one or more of your
-dependencies are using the old import path. This project will `Sirupsen` for
-the time being but reserves the right to change this in the future.
+dependencies are using the old import path. This project uses `sirupsen` which
+reflects what the majority of projects are using today.
