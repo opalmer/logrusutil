@@ -3,6 +3,7 @@ package logrusutil
 import (
 	"errors"
 	"io/ioutil"
+	"sync"
 
 	"github.com/sirupsen/logrus"
 )
@@ -11,11 +12,17 @@ var (
 	// ErrLevelNotProvided is returned when a level was not provided
 	// in the config struct.
 	ErrLevelNotProvided = errors.New("level not provided")
+
+	mtx = &sync.Mutex{}
 )
 
 // ConfigureLogger will use the provided configuration to setup the root
 // logrus logger.
 func ConfigureLogger(logger *logrus.Logger, config *Config) error {
+	// Not all of the below operations are thread safe in logrus.
+	mtx.Lock()
+	defer mtx.Unlock()
+
 	if config.Level == "" || config.HookLevel == "" {
 		return ErrLevelNotProvided
 	}
